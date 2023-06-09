@@ -73,7 +73,7 @@ export default function Layout({ children }) {
             GitHub
           </Link>
         </div>
-        <Link href="/resume.pdf" className={classes.CVWrapper} download="Nelli_Hayrapetyan_CV.pdf">
+        <Link href="/resume.pdf" className={classes.CVWrapper} download="Nelli_Hayrapetyan_CV.pdf" target="_blank">
           <Image src="/assets/icons/download.svg" alt="Download Icon" className={classes.Icon} width={34} height={34}/>
           My Resume
         </Link>
