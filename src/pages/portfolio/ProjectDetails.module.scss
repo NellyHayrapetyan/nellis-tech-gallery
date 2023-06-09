@@ -1,0 +1,183 @@
+@import 'public/assets/colors';
+@import 'public/assets/variables';
+
+.DetailsWrapper {
+  margin: 0 5rem;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+
+  .Introduction {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .Title {
+      align-self: start;
+      animation: 2s $stretch ease-out;
+      font-size: 4rem;
+      color: $primary;
+    }
+
+    .AboutWrapper {
+      display: flex;
+      margin-bottom: 3rem;
+      gap: 3rem;
+
+      .About {
+        color: $grey;
+        text-align: justify;
+      }
+
+      .SubAbout {
+        flex: 1 1;
+
+        section {
+          .Link {
+            text-decoration: none !important;
+
+            h2 {
+              position: relative;
+              width: max-content;
+
+              &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -0.08rem;
+                width: 100%;
+                height: 0.08rem;
+                background-color: $green;
+                transition: width 0.5s;
+              }
+            }
+          }
+
+          h2 {
+            color: $primary;
+          }
+
+          &.Overview {
+
+            article {
+              animation: 2s $stretch ease-out;
+            }
+          }
+
+          .Skills {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+            padding: 0;
+            flex-wrap: wrap;
+
+            .Skill {
+              padding: 0.3rem 0.8rem;
+              font-size: 1.2rem;
+              background: rgba(153,153,153,.2);
+              border-radius: 5px;
+              font-weight: 600;
+              color: $green;
+              animation: $stretch 2s ease-out;
+            }
+          }
+        }
+
+        .Material {
+          max-width: 100%;
+          margin-bottom: 3rem;
+          animation: 2s $stretch ease-out;
+        }
+      }
+    }
+  }
+
+  .Secured {
+    color: $red;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    gap: 0.5rem;
+
+    .Icon {
+      height: 3rem;
+      width: 2rem;
+    }
+  }
+
+  .DescriptionWrapper {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    position: relative;
+    gap: 2rem;
+    padding-right: 40px;
+
+    &::before {
+      content: "";
+      background: 1px $light-grey;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      width: 1px;
+      top: 4px;
+      height: 100%;
+      animation: none;
+    }
+
+    .Description {
+      position: relative;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: $grey;
+      opacity: 0;
+
+      .Point {
+        animation: none;
+        display: inline-block;
+        background: $cream-color;
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid $green;
+        left: -3.1rem;
+        width: 1rem;
+        height: 1rem;
+        top: 0;
+      }
+
+      img {
+        max-width: 75%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 700px) {
+  .DetailsWrapper {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .DetailsWrapper {
+    .Introduction {
+      .AboutWrapper {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .DetailsWrapper {
+    margin: 0 1rem;
+  }
+}

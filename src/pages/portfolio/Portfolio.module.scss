@@ -1,0 +1,85 @@
+@import 'public/assets/colors';
+@import 'public/assets/variables';
+
+.ProjectWrapper {
+  margin: 0 5rem;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .Title {
+    width: 100%;
+    animation: 1.5s $lineUp ease-out;
+    font-size: 4rem;
+    color: $primary;
+  }
+
+  .Intro {
+    color: $grey;
+    font-size: 1.2rem;
+    text-align: justify;
+    animation: 2s $stretch ease-out;
+  }
+
+  .AllProjects {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .ProjectTabs {
+      .Active {
+        background: $dark-grey;
+        color: $cream-color;
+        padding: 0.3rem 1.5rem;
+        font-weight: 900 !important;
+      }
+
+      button {
+        transition: all 0.3s ease 0s;
+        background: transparent;
+        border: none;
+        border-radius: 0.3rem;
+        padding: 0.3rem 0.5rem;
+        color: $grey;
+        background: $cream-color;
+        font-weight: 900 !important;
+        margin: 0 1rem 0 0;
+        font-size: 1rem;
+        animation: 2s $stretch ease-out;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .Projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      padding: 0 10rem;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .ProjectWrapper {
+    .AllProjects {
+      .Projects {
+        flex-direction: column;
+        padding: 0;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .ProjectWrapper {
+    margin: 0 1rem;
+  }
+}

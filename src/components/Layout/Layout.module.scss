@@ -1,0 +1,230 @@
+@import "public/assets/variables";
+@import "public/assets/colors";
+
+.App {
+  text-align: center;
+  position: relative;
+
+  .Content {
+    padding-top: 2rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .AppHeader {
+    min-height: 5.5rem;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+    top: 0;
+    font-size: 1.5rem;
+    background: $cream-color;
+    z-index: 200;
+
+    .HomeIcon {
+      animation: moveLines 3s linear infinite;
+    }
+
+    .TabDropdown {
+      display: none;
+
+      .Menu {
+        height: 2rem;
+        width: 2rem;
+
+        &:hover {
+          animation: moveLines 3s linear infinite;
+        }
+      }
+
+      .MobileTabs {
+        position: fixed;
+        z-index: 200;
+        width: 100%;
+        top: 5.5rem;
+        background: $cream-color;
+        transition: all 1s ease 0s;
+        left: 0;
+        bottom: 0;
+        animation-name: opacitys;
+        animation-duration: 1s;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        box-shadow: 0 8px 6px $light-grey;
+
+        & * {
+          position: relative;
+          font-size: 3rem;
+          padding: 1rem 0;
+          text-decoration: none;
+          color: $grey;
+          margin-bottom: 3rem;
+          width: max-content;
+
+          &.Active {
+            color: $green;
+
+            &::after {
+              width: 100%;
+            }
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.08rem;
+            width: 0;
+            height: 0.08rem;
+            background-color: $green;
+            transition: width 0.5s;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: $green;
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .Tabs {
+      display: flex;
+      gap: 1.3rem;
+
+      & * {
+        position: relative;
+        color: $grey;
+        text-decoration: none;
+
+        &.Active {
+          color: $green;
+
+          &::after {
+            width: 100%;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -0.08rem;
+          width: 0;
+          height: 0.08rem;
+          background-color: $green;
+          transition: width 0.5s;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $green;
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .Footer {
+    z-index: 200;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 1.5rem 4rem;
+    background-color: $cream-color;
+    justify-content: space-between;
+
+    .Social {
+      display: flex;
+      gap: 1rem;
+
+      .Link {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        text-decoration: none;
+        color: $grey;
+
+        &:hover {
+          color: $green;
+        }
+
+        .Icon {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+    }
+
+    .CVWrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      color: $green;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+
+      .Icon {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+}
+
+
+@keyframes moveLines {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 700px) {
+  .App {
+    .AppHeader {
+      padding: 0 1.5rem;
+    }
+
+    .Footer {
+      justify-content: space-between;
+      backdrop-filter: blur(6px) saturate(2.5);
+      background: rgba(191, 191, 191, 0.2);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .App {
+    .AppHeader {
+      padding: 0 0.5rem;
+
+      .Tabs {
+        display: none;
+      }
+
+      .TabDropdown {
+        display: inline;
+        position: relative;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import "public/assets/colors";
+@import "public/assets/variables";
+
+.Info {
+  flex: 0 0 83%;
+  max-width: 83%;
+  width: 100%;
+
+  h1 {
+    color: $primary;
+  }
+
+  .Experience {
+    list-style: none;
+    position: relative;
+
+    &::before {
+      content: "";
+      background: 1px $light-grey;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      width: 1px;
+      top: 4px;
+      height: 100%;
+      animation: none;
+    }
+
+    .CompanyWrapper {
+      .Point {
+        animation: none;
+        display: inline-block;
+        background: $cream-color;
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid $green;
+        left: -0.55rem;
+        width: 1rem;
+        height: 1rem;
+        margin-top: -0.3rem;
+      }
+
+      .Companies {
+        text-align: start;
+        color: $grey;
+        margin: 3rem 0;
+        opacity: 0;
+
+        .Degree {
+          font-weight: 900;
+          color: $primary;
+        }
+
+        .Header {
+          color: $green;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .Title {
+            font-weight: bold;
+          }
+
+          .Timeline {
+            color: $green
+          }
+        }
+
+
+
+        .ExperienceInCompany {
+          margin-top: 1rem;
+          justify-content: space-between;
+
+          .CompanyImage {
+            height: fit-content;
+          }
+        }
+      }
+    }
+  }
+}

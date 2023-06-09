@@ -1,0 +1,18 @@
+@import 'public/assets/colors';
+
+.MenuSVG {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  z-index: 1;
+  
+  &:hover {
+    fill: $green;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
