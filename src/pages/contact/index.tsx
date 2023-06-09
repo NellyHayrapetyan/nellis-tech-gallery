@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 import classes from './Contact.module.scss';
 
 const emailValidity = (value) => {
@@ -8,9 +8,9 @@ const emailValidity = (value) => {
 
 const Contact = () => {
   const [isValid, setIsValid] = useState(false);
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const messageRef = useRef();
+  // const nameRef = useRef();
+  // const emailRef = useRef();
+  // const messageRef = useRef();
 
   const handleFieldChange = (e) => {
       setIsValid(e.target.value.length)
@@ -24,17 +24,6 @@ const Contact = () => {
     }
   }
 
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //
-  //   //   emailjs.sendForm(serviceID, templateID, e.target, UserID)
-  //   //   .then((result) => {
-  //   //     console.log(result.text);
-  //   //   }, (error) => {
-  //   //     console.log(error.text);
-  //   //   });
-  //   // };
-
     return (
       <div className={classes.ContactWrapper}>
         <h1 className={classes.Title}>Contact.</h1>
@@ -42,7 +31,7 @@ const Contact = () => {
           on <b>hayrapetyannelly1@gmail.com</b></p>
         <form>
           <input
-            ref={nameRef}
+            // ref={nameRef}
             className={classes.Field}
             onChange={handleFieldChange}
             type="text"
@@ -51,7 +40,7 @@ const Contact = () => {
             placeholder="Name"
             aria-required="true" required=""/>
           <input
-            ref={emailRef}
+            // ref={emailRef}
             onChange={handleEmailChange}
             className={classes.Field}
             type="email"
@@ -61,7 +50,7 @@ const Contact = () => {
             aria-required="true"
             required=""/>
           <textarea
-            ref={messageRef}
+            // ref={messageRef}
             onChange={handleFieldChange}
             className={`${classes.Field} ${classes.TextField}`}
             name="message"

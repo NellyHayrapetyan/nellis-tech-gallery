@@ -86,9 +86,13 @@
     }
   }
 
-  .Contact {
-    color: $primary;
-    cursor: copy;
+  p {
+    color: $green;
+
+    .Contact {
+      color: $primary;
+      cursor: copy;
+    }
   }
 
   .Description {

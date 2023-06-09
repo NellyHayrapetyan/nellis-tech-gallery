@@ -6,14 +6,14 @@ import HomeIcon from '../homeIcon/HomeIcon';
 import MenuIcon from '../menuIcon/MenuIcon';
 import Backdrop from '../backdrop/Backdrop';
 
-import styles from './Layout.module.scss';
+import classes from './Layout.module.scss';
 
 export default function Layout({ children }) {
   const router = useRouter();
   const [showTabs, setShowTabs] = useState(false);
 
   const getActiveClass = (path) => {
-    return router.pathname === path ? styles.Active : '';
+    return router.pathname === path ? classes.Active : '';
   };
 
   const handleTabsVisibility = () => {
@@ -21,56 +21,62 @@ export default function Layout({ children }) {
   };
 
   return (
-    <div className={styles.App}>
-      <header className={styles.AppHeader}>
+    <div className={classes.App}>
+      <header className={classes.AppHeader}>
         <Link href="/"  onClick={handleTabsVisibility}>
-            <HomeIcon className={styles.HomeIcon} />
+            <HomeIcon className={classes.HomeIcon} />
         </Link>
 
-        <div className={styles.Tabs}>
+        <div className={classes.Tabs}>
           <Link href="/about"  className={getActiveClass('/about')}>
             About
           </Link>
           <Link href="/portfolio"  className={getActiveClass('/portfolio')}>
            Portfolio
           </Link>
+          <Link href="/contact"  className={getActiveClass('/contact')}>
+            Contact
+          </Link>
         </div>
 
-        <div className={styles.TabDropdown}>
-          <MenuIcon className={styles.Menu} onClick={handleTabsVisibility} />
+        <div className={classes.TabDropdown}>
+          <MenuIcon className={classes.Menu} onClick={handleTabsVisibility} />
           {showTabs && <Backdrop onClick={handleTabsVisibility} />}
           {showTabs && (
-            <div className={styles.MobileTabs}>
+            <div className={classes.MobileTabs}>
               <Link href="/about" className={getActiveClass('/about')} onClick={handleTabsVisibility}>
                   About
               </Link>
               <Link href="/portfolio"  className={getActiveClass('/portfolio')} onClick={handleTabsVisibility}>
-                  Portfolio
+                Portfolio
+              </Link>
+              <Link href="/contact"  className={getActiveClass('/contact')} onClick={handleTabsVisibility}>
+                Contact
               </Link>
             </div>
           )}
         </div>
       </header>
 
-      <div className={styles.Content}>
+      <div className={classes.Content}>
         {children}
       </div>
 
-      <footer className={styles.Footer}>
-        <div className={styles.Social}>
-          <a href="https://www.linkedin.com/in/nelli-hayrapetyan/" target="_blank" rel="noopener noreferrer">
-            <Image src="/assets/icons/linkedin.svg" alt="Linkedin Icon" className={styles.Icon} width={34} height={34}/>
+      <footer className={classes.Footer}>
+        <div className={classes.Social}>
+          <Link href="https://www.linkedin.com/in/nelli-hayrapetyan/" target="_blank" rel="noopener noreferrer" className={classes.Link}>
+            <Image src="/assets/icons/linkedin.svg" alt="Linkedin Icon" className={classes.Icon} width={34} height={34}/>
             LinkedIn
-          </a>
-          <a href="https://github.com/NellyHayrapetyan" target="_blank" rel="noopener noreferrer">
-            <Image src="/assets/icons/github.svg" alt="GitHub Icon" className={styles.Icon} width={34} height={34}/>
+          </Link>
+          <Link href="https://github.com/NellyHayrapetyan" target="_blank" rel="noopener noreferrer" className={classes.Link}>
+            <Image src="/assets/icons/github.svg" alt="GitHub Icon" className={classes.Icon} width={34} height={34}></Image>
             GitHub
-          </a>
+          </Link>
         </div>
-        <a href="/resume.pdf" className={styles.CVWrapper} download="Nelli_Hayrapetyan_CV.pdf">
-          <Image src="/assets/icons/download.svg" alt="Download Icon" className={styles.Icon} width={34} height={34}/>
+        <Link href="/resume.pdf" className={classes.CVWrapper} download="Nelli_Hayrapetyan_CV.pdf">
+          <Image src="/assets/icons/download.svg" alt="Download Icon" className={classes.Icon} width={34} height={34}/>
           My Resume
-        </a>
+        </Link>
       </footer>
     </div>
   );

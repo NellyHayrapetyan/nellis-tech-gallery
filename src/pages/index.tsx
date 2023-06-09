@@ -1,11 +1,9 @@
 import classes from './Welcome.module.scss'
 import ArrowIcon from '../components/arrowIcon/ArrowIcon'
-import {useRef} from 'react'
 import Link from "next/link";
 import {WelcomeMessage} from "../../public/assets/ExperienceData";
 
 function Welcome() {
-  const textRef = useRef();
 
   const handleCopy = async (e) => {
     await navigator.clipboard.writeText(e.target.textContent);
@@ -25,7 +23,7 @@ function Welcome() {
           </div>
         </Link>
       </div>
-      <p ref={textRef} onClick={handleCopy}>Contact me by: <span className={classes.Contact}><b>hayrapetyannelly1@gmail.com</b></span></p>
+      <p onClick={handleCopy}>Contact me by: <span className={classes.Contact}><b>hayrapetyannelly1@gmail.com</b></span></p>
     </div>
   );
 }
