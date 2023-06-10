@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react'
+import React, {ReducerState, useReducer} from 'react'
 import classes from './Portfolio.module.scss';
 import ProjectCard from "@/components/projectCard/ProjectCard";
 import {ProjectIntro, ProfessionalProjects, PersonalProjects} from '../../../public/assets/ProjectsData'
@@ -7,10 +7,11 @@ const ALL = 'ALL';
 const PERSONAL = 'PERSONAL';
 const PROFESSIONAL = 'PROFESSIONAL';
 
-interface VisibilityState {
+type VisibilityState = {
   personal: boolean,
   professional: boolean,
 }
+
 
 const tabReducer = (state: VisibilityState, action: { type: string } ) => {
   switch (action.type) {
@@ -24,12 +25,13 @@ const tabReducer = (state: VisibilityState, action: { type: string } ) => {
       return { personal: true, professional: true };
   }
 }
+const initialState: VisibilityState = {
+  personal: true,
+  professional: true,
+};
 
 const Portfolio = () => {
-  const [ tabVisibility, dispatch ] = useReducer(tabReducer, {
-    personal: true,
-    professional: true,
-  });
+  const [ tabVisibility, dispatch ] = useReducer(tabReducer, initialState as ReducerState<VisibilityState>);
 
   const handleTabClick = (type: string) => {
     dispatch({ type });
