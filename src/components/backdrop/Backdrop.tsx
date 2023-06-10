@@ -1,7 +1,10 @@
 import React from 'react';
 import classes from './Backdrop.module.scss';
 
-const Backdrop = ({ onClick }) => {
+interface BackdropProps {
+  onClick: () => void;
+}
+const Backdrop: React.FC<BackdropProps> = ({ onClick }) => {
   return <div className={classes.Backdrop} onClick={onClick} />;
 };
 

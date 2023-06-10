@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './About.module.scss';
 import Experience from '../../components/experience/Experience'
-import {EducationData, ExperienceData, ExperienceSummary, Skills} from "../../../public/assets/ExperienceData";
+import Skills from "@/components/skills/Skills";
+import {EducationData, ExperienceData, ExperienceSummary, Skills as data} from "../../../public/assets/ExperienceData";
 
 const Index = () => {
   return (
@@ -15,9 +16,7 @@ const Index = () => {
           </section>
           <section>
             <h2>My Skills</h2>
-            <ul className={classes.Skills}>
-              {Skills.map((skill, i) => <li className={classes.Skill} key={i}>{skill}</li>)}
-            </ul>
+            <Skills data={data}/>
           </section>
         </div>
       </section>

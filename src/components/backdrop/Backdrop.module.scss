@@ -1,9 +1,9 @@
 .Backdrop {
   background-color: black;
   opacity: 0.7;
-  height: 100%;
   position: fixed;
   width: 100%;
   top: 5.5rem;
+  height: calc(100% - 10.5rem);
   left: 0;
 }

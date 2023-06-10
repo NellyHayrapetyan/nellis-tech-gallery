@@ -2,17 +2,14 @@ import classes from './Welcome.module.scss'
 import ArrowIcon from '../components/arrowIcon/ArrowIcon'
 import Link from "next/link";
 import {WelcomeMessage} from "../../public/assets/ExperienceData";
+import Image from "next/image";
+import React from "react";
 
 function Welcome() {
-
-  const handleCopy = async (e) => {
-    await navigator.clipboard.writeText(e.target.textContent);
-  };
-
   return (
     <div className={classes.Wrapper}>
       <div className={classes.ImageWrapper}>
-        <img className={classes.ProfilePicture} src="/portrait-photo.jpg" alt="my portrait"/>
+        <Image className={classes.ProfilePicture} src="/portrait-photo.jpg" alt="my portrait" fill={true}/>
       </div>
       <article className={classes.Description}>{WelcomeMessage}</article>
       <div  className={classes.Navigation}>
@@ -23,7 +20,6 @@ function Welcome() {
           </div>
         </Link>
       </div>
-      <p onClick={handleCopy}>Contact me by: <span className={classes.Contact}><b>hayrapetyannelly1@gmail.com</b></span></p>
     </div>
   );
 }

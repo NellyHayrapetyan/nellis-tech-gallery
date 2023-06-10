@@ -1,12 +1,17 @@
 import classes from './ProjectCard.module.scss'
 import React from 'react'
-import '../../../public/assets/variables.scss'
+import Image from "next/image";
 import Link from "next/link";
+import {Project} from "@/models/Project";
 
-const ProjectCard = ({ data, delay }) => {
+interface ProjectCardProps {
+  data: Project;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   return (
-    <Link className={classes.ProjectIntro} style={{animationDelay: delay}} href={`portfolio/${data.id}`}>
-      <img src={data.material} alt="project"/>
+    <Link className={classes.ProjectIntro} href={`portfolio/${data.id}`}>
+      <Image className={classes.ProjectImage} src={data.material} alt="project" fill={true}/>
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
         <p>{data.shortInfo}</p>

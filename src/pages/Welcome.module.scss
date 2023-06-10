@@ -1,5 +1,5 @@
-@import 'public/assets/colors';
-@import 'public/assets/variables';
+@import 'public/assets/colors.module.scss';
+@import 'public/assets/variables.module.scss';
 
 .Wrapper {
   text-align: center;
@@ -51,12 +51,17 @@
   .ImageWrapper {
     height: 11.9rem;
     width: 11.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 
     .ProfilePicture {
+      position: static !important;
       border-radius: 0.5rem;
-      height: 9rem;
-      width: 9rem;
+      height: 9rem !important;
+      width: 9rem !important;
+      object-fit: contain;
     }
 
     &::after {
@@ -70,28 +75,6 @@
       border-radius: 1rem;
       background-color: $light-green;
       box-shadow: 0 0 0.2rem 0.17rem $light-green;
-    }
-
-    &:hover {
-      img {
-        height: 10.2rem;
-        width: 10.2rem;
-        animation: enlargePicture 0.5s linear;
-      }
-
-      &::after {
-        width: 40%;
-        animation: enlargeShadow 0.5s linear;
-      }
-    }
-  }
-
-  p {
-    color: $green;
-
-    .Contact {
-      color: $primary;
-      cursor: copy;
     }
   }
 
@@ -140,38 +123,14 @@
   }
 }
 
-@keyframes enlargePicture {
-  0% {
-    width: 9rem;
-    height: 9rem;
-  }
-  100% {
-    width: 10.2rem;
-    height: 10.2rem;
-  }
-}
-
-@keyframes enlargeShadow {
-  0% {
-    width: 30%;
-  }
-  100% {
-    width: 40%;
-  }
-}
-
 @media (max-width: 700px) {
   .Wrapper {
-    .Description {
-      margin: 1rem 2rem;
-    }
+    margin: 6.25rem 2rem 1rem;
   }
 }
 
 @media (max-width: 600px) {
   .Wrapper {
-    .Description {
-      margin: 0 1rem;
-    }
+    margin: 6.25rem 1rem 0;
   }
 }

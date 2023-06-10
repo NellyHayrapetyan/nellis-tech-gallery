@@ -1,5 +1,5 @@
-@import 'public/assets/colors';
-@import 'public/assets/variables';
+@import 'public/assets/colors.module.scss';
+@import 'public/assets/variables.module.scss';
 
 .DetailsWrapper {
   margin: 0 5rem;
@@ -31,6 +31,7 @@
       }
 
       .SubAbout {
+        position: relative;
         flex: 1 1;
         display: flex;
         flex-direction: column;
@@ -67,27 +68,10 @@
               animation: 2s $stretch ease-out;
             }
           }
-
-          .Skills {
-            list-style-type: none;
-            display: flex;
-            gap: 1rem;
-            padding: 0;
-            flex-wrap: wrap;
-
-            .Skill {
-              padding: 0.3rem 0.8rem;
-              font-size: 1.2rem;
-              background: rgba(153,153,153,.2);
-              border-radius: 5px;
-              color: $green;
-              animation: $stretch 2s ease-out;
-            }
-          }
         }
 
         .Material {
-          max-width: 100%;
+          object-fit: contain;
           margin-bottom: 3rem;
           animation: 2s $stretch ease-out;
         }
@@ -144,6 +128,11 @@
       gap: 1rem;
       margin: 0 3rem;
 
+      & * {
+        max-width: 85%;
+        text-align: justify;
+      }
+
       .Point {
         animation: none;
         display: inline-block;
@@ -157,8 +146,9 @@
         top: 0;
       }
 
-      img {
-        max-width: 75%;
+      .DescriptionImage {
+        position: static !important;
+        object-fit: contain;
       }
     }
   }
@@ -176,6 +166,15 @@
     .Introduction {
       .AboutWrapper {
         flex-direction: column;
+      }
+    }
+    .DescriptionWrapper {
+      padding-right: 0;
+      .Description {
+
+        & * {
+          max-width: 100%;
+        }
       }
     }
   }

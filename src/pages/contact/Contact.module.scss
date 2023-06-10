@@ -1,8 +1,9 @@
-@import 'public/assets/colors';
-@import 'public/assets/variables';
+@import "public/assets/variables.module.scss";
+@import "public/assets/colors.module.scss";
 
 .ContactWrapper {
   margin: 0 5rem;
+  gap: 1rem;
   text-align: start;
   display: flex;
   flex-direction: column;
@@ -16,6 +17,7 @@
   }
 
   .Intro {
+    opacity: 0;
     color: $grey;
     font-size: 1.2rem;
   }
@@ -25,6 +27,10 @@
     gap: 1rem;
     display: flex;
     flex-direction: column;
+
+    & * {
+      opacity: 0;
+    }
 
     .Field {
       background: white;
@@ -59,6 +65,11 @@
       padding: 15px 40px;
       margin-bottom: 3rem;
       width: fit-content;
+      cursor: pointer;
+
+      & * {
+        opacity: 1;
+      }
 
       &.disabled {
         opacity: 0.5;

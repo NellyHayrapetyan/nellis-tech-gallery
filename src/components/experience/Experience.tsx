@@ -1,20 +1,14 @@
 import classes from './Experience.module.scss'
-import React, {useEffect, useRef} from 'react'
-import 'public/assets/variables.scss'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import React from 'react'
+import ScrollLineUp from "@/components/scrollLineUp/ScrollLineUp";
+import {EducationExperience, WorkExperience} from "@/models/Experience";
 
-function Experience({ work, education }) {
-  const dataElementsRef = useRef([]);
+interface ExperienceProps {
+  work: Array<WorkExperience>;
+  education: Array<EducationExperience>;
+}
 
-  useEffect(() => {
-    const observer = useScrollAnimation(dataElementsRef);
-
-    return () => {
-      observer.disconnect();
-    }
-  }, [dataElementsRef])
-
-
+const Experience: React.FC<ExperienceProps> = ({ work, education }) => {
   return (
     <>
       <section className={classes.Info}>
@@ -23,15 +17,17 @@ function Experience({ work, education }) {
           {work.map((data, i) =>
             <div className={classes.CompanyWrapper} key={i}>
               <span className={classes.Point}></span>
-              <li ref={(el) => (dataElementsRef.current[i] = el)} className={classes.Companies}>
-                <div className={classes.Header}>
-                  <span className={classes.Title}>{data.title}</span>
-                  <span className={classes.Timeline}>{data.timeline.start} - {data.timeline.end}</span>
-                </div>
-                <ul className={classes.ExperienceInCompany}>{
-                  data.text.map((point, j) => <li key={j}>{point}</li>)
-                }</ul>
-              </li>
+              <ScrollLineUp key={i}>
+                <li className={classes.Companies}>
+                  <div className={classes.Header}>
+                    <span className={classes.Title}>{data.title}</span>
+                    <span className={classes.Timeline}>{data.timeline.start} - {data.timeline.end}</span>
+                  </div>
+                  <ul className={classes.ExperienceInCompany}>{
+                    data.text.map((point, j) => <li key={j}>{point}</li>)
+                  }</ul>
+                </li>
+              </ScrollLineUp>
             </div>)
           }
         </ul>
@@ -42,14 +38,16 @@ function Experience({ work, education }) {
           {education.map((data, i) =>
             <div className={classes.CompanyWrapper} key={i}>
               <span className={classes.Point}></span>
-              <li ref={(el) => (dataElementsRef.current[work.length + i] = el)} className={classes.Companies}>
-                <div className={classes.Header}>
-                  <span className={classes.Title}>{data.university}</span>
-                  <span className={classes.Timeline}>{data.timeline.start} - {data.timeline.end}</span>
-                </div>
-                <p className={classes.Degree}>{data.degree}</p>
-                <p className={classes.Major}>{data.major}</p>
-              </li>
+              <ScrollLineUp key={i}>
+                <li className={classes.Companies}>
+                  <div className={classes.Header}>
+                    <span className={classes.Title}>{data.university}</span>
+                    <span className={classes.Timeline}>{data.timeline.start} - {data.timeline.end}</span>
+                  </div>
+                  <p className={classes.Degree}>{data.degree}</p>
+                  <p>{data.major}</p>
+                </li>
+              </ScrollLineUp>
             </div>)
           }
         </ul>

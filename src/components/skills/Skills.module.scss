@@ -1,0 +1,20 @@
+@import "public/assets/colors.module.scss";
+@import "public/assets/variables.module.scss";
+
+
+.Skills {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  flex-wrap: wrap;
+
+  .Skill {
+    padding: 0.3rem 0.8rem;
+    font-size: 1.2rem;
+    background: rgba(153,153,153,.2);
+    border-radius: 5px;
+    color: $green;
+    animation: $stretch 2s ease-out;
+  }
+}

@@ -7,7 +7,12 @@ const ALL = 'ALL';
 const PERSONAL = 'PERSONAL';
 const PROFESSIONAL = 'PROFESSIONAL';
 
-const tabReducer = (state, action) => {
+interface VisibilityState {
+  personal: boolean,
+  professional: boolean,
+}
+
+const tabReducer = (state: VisibilityState, action: { type: string } ) => {
   switch (action.type) {
     case ALL:
       return  { personal: true, professional: true };
@@ -17,7 +22,6 @@ const tabReducer = (state, action) => {
       return { personal: true, professional: false };
     default:
       return { personal: true, professional: true };
-
   }
 }
 
@@ -27,14 +31,14 @@ const Portfolio = () => {
     professional: true,
   });
 
-  const handleTabClick = (type) => {
+  const handleTabClick = (type: string) => {
     dispatch({ type });
   }
 
   return (
     <section className={classes.ProjectWrapper}>
       <h1 className={classes.Title}>Projects.</h1>
-      <h1 className={classes.Intro}>{ProjectIntro}</h1>
+      <p className={classes.Intro}>{ProjectIntro}</p>
       <section className={classes.AllProjects}>
         <div className={classes.ProjectTabs}>
           <button onClick={handleTabClick.bind(this, ALL)} className={tabVisibility.professional && tabVisibility.personal ? `${classes.Active}`: ''}>All</button>

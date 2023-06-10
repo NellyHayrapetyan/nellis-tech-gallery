@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import {ReactNode, useState} from 'react';
 import Image from 'next/image';
 import HomeIcon from '../homeIcon/HomeIcon';
 import MenuIcon from '../menuIcon/MenuIcon';
@@ -8,11 +8,16 @@ import Backdrop from '../backdrop/Backdrop';
 
 import classes from './Layout.module.scss';
 
-export default function Layout({ children }) {
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   const [showTabs, setShowTabs] = useState(false);
 
-  const getActiveClass = (path) => {
+  const getActiveClass = (path: string) => {
     return router.pathname === path ? classes.Active : '';
   };
 
@@ -23,8 +28,8 @@ export default function Layout({ children }) {
   return (
     <div className={classes.App}>
       <header className={classes.AppHeader}>
-        <Link href="/"  onClick={handleTabsVisibility}>
-            <HomeIcon className={classes.HomeIcon} />
+        <Link href="/" onClick={() => setShowTabs(false)}>
+          <HomeIcon/>
         </Link>
 
         <div className={classes.Tabs}>
@@ -40,7 +45,7 @@ export default function Layout({ children }) {
         </div>
 
         <div className={classes.TabDropdown}>
-          <MenuIcon className={classes.Menu} onClick={handleTabsVisibility} />
+          <MenuIcon onClick={handleTabsVisibility} />
           {showTabs && <Backdrop onClick={handleTabsVisibility} />}
           {showTabs && (
             <div className={classes.MobileTabs}>
@@ -66,11 +71,11 @@ export default function Layout({ children }) {
         <div className={classes.Social}>
           <Link href="https://www.linkedin.com/in/nelli-hayrapetyan/" target="_blank" rel="noopener noreferrer" className={classes.Link}>
             <Image src="/assets/icons/linkedin.svg" alt="Linkedin Icon" className={classes.Icon} width={34} height={34}/>
-            LinkedIn
+            <span>LinkedIn</span>
           </Link>
           <Link href="https://github.com/NellyHayrapetyan" target="_blank" rel="noopener noreferrer" className={classes.Link}>
             <Image src="/assets/icons/github.svg" alt="GitHub Icon" className={classes.Icon} width={34} height={34}></Image>
-            GitHub
+            <span>GitHub</span>
           </Link>
         </div>
         <Link href="/resume.pdf" className={classes.CVWrapper} download="Nelli_Hayrapetyan_CV.pdf" target="_blank">

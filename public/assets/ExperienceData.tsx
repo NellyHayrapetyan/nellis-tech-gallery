@@ -84,7 +84,7 @@ export const EducationData = [
 
 export const WelcomeMessage = `Welcome to Nelli's Tech Gallery! I'm Nelli Hayrapetyan, a dedicated Frontend web developer specializing in building beautiful and engaging websites. It's a pleasure to have you here, and I invite you to explore and learn more about me and my work. Take your time to browse through the gallery and discover the projects I've worked on, the technologies I specialize in, and the skills I bring to the table. If you have any questions or are interested in collaborating, feel free to reach out.`;
 
-export const Skills = [
+export const Skills: string[] = [
   "Angular",
   "ReactJS",
   "JavaScript/ES6",

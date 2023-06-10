@@ -1,26 +1,15 @@
-import React, {useEffect, useRef} from 'react';
 import Link from 'next/link';
 import classes from './ProjectDetails.module.scss';
 import { PersonalProjects, ProfessionalProjects } from '../../../public/assets/ProjectsData';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
 import Image from "next/image";
 import {Project} from "@/models/Project";
 import {GetStaticPaths, GetStaticProps} from "next";
+import ScrollLineUp from "@/components/scrollLineUp/ScrollLineUp";
+import Skills from "@/components/skills/Skills";
 
 const projects: Project[] = [...ProfessionalProjects, ...PersonalProjects];
 
-const ProjectDetails = ({ data }) => {
-  const dataElementsRef = useRef([]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const observer = useScrollAnimation(dataElementsRef);
-
-      return () => observer.disconnect()
-    }
-  }, []);
-
-
+const ProjectDetails = ({ data }: { data: Project }) => {
   return (
     <div className={classes.DetailsWrapper}>
       <section className={classes.Introduction}>
@@ -33,13 +22,7 @@ const ProjectDetails = ({ data }) => {
             </section>
             <section>
               <h2>Technologies</h2>
-              <ul className={classes.Skills}>
-                {data.technologies.map((skill, i) => (
-                  <li className={classes.Skill} key={i}>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+              <Skills data={data.technologies}></Skills>
             </section>
             {data.webPage && (
               <section>
@@ -57,24 +40,24 @@ const ProjectDetails = ({ data }) => {
             )}
           </div>
           <div className={classes.SubAbout}>
-            <img className={classes.Material} src={data.material} alt="short intro" />
+            <Image className={classes.Material} src={data.material} alt="short intro" fill={true}/>
           </div>
         </div>
       </section>
       {data.descriptions ? (
         <ul className={classes.DescriptionWrapper}>
           {data.descriptions.map((description, i) => (
-            <li
-              key={i}
-              className={classes.Description}
-              ref={(el) => (dataElementsRef.current[i] = el)}
-            >
-              <span className={classes.Point}></span>
-              <p>{description.text}</p>
-              {description.picture && (
-                <img src={description.picture.link} alt={description.picture.alt} />
-              )}
-            </li>
+            <ScrollLineUp key={i}>
+              <li
+                className={classes.Description}
+              >
+                <span className={classes.Point}></span>
+                <p>{description.text}</p>
+                {description.picture && (
+                  <Image className={classes.DescriptionImage} src={description.picture.link} alt={description.picture.alt} fill={true}/>
+                )}
+              </li>
+            </ScrollLineUp>
           ))}
         </ul>
       ) : (

@@ -1,13 +1,14 @@
-@import 'public/assets/colors';
+@import 'public/assets/colors.module.scss';
 
 .MenuSVG {
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
   z-index: 1;
   
   &:hover {
     fill: $green;
+    animation: dash 3s linear infinite;
   }
 }
 

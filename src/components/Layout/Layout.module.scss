@@ -1,5 +1,5 @@
-@import "public/assets/variables";
-@import "public/assets/colors";
+@import "public/assets/variables.module.scss";
+@import "public/assets/colors.module.scss";
 
 .App {
   text-align: center;
@@ -24,21 +24,8 @@
     background: $cream-color;
     z-index: 200;
 
-    .HomeIcon {
-      animation: moveLines 3s linear infinite;
-    }
-
     .TabDropdown {
       display: none;
-
-      .Menu {
-        height: 2rem;
-        width: 2rem;
-
-        &:hover {
-          animation: moveLines 3s linear infinite;
-        }
-      }
 
       .MobileTabs {
         position: fixed;
@@ -60,11 +47,11 @@
 
         & * {
           position: relative;
-          font-size: 3rem;
-          padding: 1rem 0;
+          font-size: 2rem;
+          padding-bottom: 0.5rem;
           text-decoration: none;
           color: $grey;
-          margin-bottom: 3rem;
+          margin-bottom: 1rem;
           width: max-content;
 
           &.Active {
@@ -209,6 +196,16 @@
       backdrop-filter: blur(6px) saturate(2.5);
       background: rgba(191, 191, 191, 0.2);
     }
+
+    .CVWrapper {
+      color: $cream-color;
+    }
+
+    .Link {
+      span {
+        display: none;
+      }
+    }
   }
 }
 
@@ -225,6 +222,10 @@
         display: inline;
         position: relative;
       }
+    }
+
+    .Footer {
+      padding: 1.5rem 1rem;
     }
   }
 }
