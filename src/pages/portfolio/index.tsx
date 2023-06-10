@@ -1,4 +1,4 @@
-import React, {ReducerState, useReducer} from 'react'
+import React, {Reducer, useReducer} from 'react'
 import classes from './Portfolio.module.scss';
 import ProjectCard from "@/components/projectCard/ProjectCard";
 import {ProjectIntro, ProfessionalProjects, PersonalProjects} from '../../../public/assets/ProjectsData'
@@ -31,7 +31,7 @@ const initialState: VisibilityState = {
 };
 
 const Portfolio = () => {
-  const [ tabVisibility, dispatch ] = useReducer(tabReducer, initialState as ReducerState<VisibilityState>);
+  const [ tabVisibility, dispatch ] = useReducer<Reducer<VisibilityState, { type: string }>>(tabReducer, initialState);
 
   const handleTabClick = (type: string) => {
     dispatch({ type });
