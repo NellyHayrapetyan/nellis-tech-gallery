@@ -9,7 +9,7 @@ function Welcome() {
   return (
     <div className={classes.Wrapper}>
       <div className={classes.ImageWrapper}>
-        <Image className={classes.ProfilePicture} src="/portrait-photo.jpg" alt="my portrait" fill={true}/>
+        <Image className={classes.ProfilePicture} src="/portrait-photo.jpg" alt="my portrait" fill={true} priority/>
       </div>
       <article className={classes.Description}>{WelcomeMessage}</article>
       <div  className={classes.Navigation}>
