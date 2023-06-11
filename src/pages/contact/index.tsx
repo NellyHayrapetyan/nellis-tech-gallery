@@ -13,7 +13,6 @@ const Contact = () => {
   const [toasterData, setToasterData] = useState<{message: string, type: string} | null>(null);
 
   const handleFieldChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    console.log(isValid);
     setIsValid(!!e.target.value.length)
   }
 

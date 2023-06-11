@@ -40,7 +40,7 @@ const ProjectDetails = ({ data }: { data: Project }) => {
             )}
           </div>
           <div className={classes.SubAbout}>
-            <Image className={classes.Material} src={data.material} alt="short intro" fill={true}/>
+            <Image className={classes.Material} src={data.material} alt="short intro" fill={true} priority/>
           </div>
         </div>
       </section>
@@ -54,7 +54,7 @@ const ProjectDetails = ({ data }: { data: Project }) => {
                 <span className={classes.Point}></span>
                 <p>{description.text}</p>
                 {description.picture && (
-                  <Image className={classes.DescriptionImage} src={description.picture.link} alt={description.picture.alt} fill={true}/>
+                  <Image className={classes.DescriptionImage} src={description.picture.link} alt={description.picture.alt} fill={true} priority/>
                 )}
               </li>
             </ScrollLineUp>
