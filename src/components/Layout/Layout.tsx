@@ -1,61 +1,81 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import {ReactNode, useState} from 'react';
+import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
 import HomeIcon from '../homeIcon/HomeIcon';
 import MenuIcon from '../menuIcon/MenuIcon';
 import Backdrop from '../backdrop/Backdrop';
 
 import classes from './Layout.module.scss';
+import Head from "next/head";
 
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+const title =  `| Nelli's Tech Gallery`
+
 export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   const [showTabs, setShowTabs] = useState(false);
+  const [pageTitle, setPageTitle] = useState(`Home ${title}`);
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
 
   const getActiveClass = (path: string) => {
     return router.pathname === path ? classes.Active : '';
   };
 
-  const handleTabsVisibility = () => {
+  const handleTabChange = (currentPage) => {
+    console.log(currentPage)
+    setPageTitle(`${currentPage} ${title}`)
+  }
+
+  const handleTabsVisibility = (page = null) => {
+    if (page) {
+      console.log(page)
+      handleTabChange(page);
+    }
     setShowTabs((prevState) => !prevState);
   };
 
   return (
     <div className={classes.App}>
+      <Head>
+        <title>{pageTitle}</title>
+      </Head>
       <header className={classes.AppHeader}>
-        <Link href="/" onClick={() => setShowTabs(false)}>
+        <Link href="/" onClick={() => {setShowTabs(false); handleTabChange('Home')}}>
           <HomeIcon/>
         </Link>
 
         <div className={classes.Tabs}>
-          <Link href="/about"  className={getActiveClass('/about')}>
+          <Link href="/about"  className={getActiveClass('/about')} onClick={() => handleTabChange('About')}>
             About
           </Link>
-          <Link href="/portfolio"  className={getActiveClass('/portfolio')}>
+          <Link href="/portfolio"  className={getActiveClass('/portfolio')} onClick={() => handleTabChange('Projects')}>
            Portfolio
           </Link>
-          <Link href="/contact"  className={getActiveClass('/contact')}>
+          <Link href="/contact"  className={getActiveClass('/contact')} onClick={() => handleTabChange('Contact')}>
             Contact
           </Link>
         </div>
 
         <div className={classes.TabDropdown}>
-          <MenuIcon onClick={handleTabsVisibility} />
-          {showTabs && <Backdrop onClick={handleTabsVisibility} />}
+          <MenuIcon onClick={() => handleTabsVisibility(null)} />
+          {showTabs && <Backdrop onClick={() => handleTabsVisibility(null)} />}
           {showTabs && (
             <div className={classes.MobileTabs}>
-              <Link href="/about" className={getActiveClass('/about')} onClick={handleTabsVisibility}>
+              <Link href="/about" className={getActiveClass('/about')} onClick={() => handleTabsVisibility('About')}>
                   About
               </Link>
-              <Link href="/portfolio"  className={getActiveClass('/portfolio')} onClick={handleTabsVisibility}>
+              <Link href="/portfolio"  className={getActiveClass('/portfolio')} onClick={() => handleTabsVisibility('Projects')}>
                 Portfolio
               </Link>
-              <Link href="/contact"  className={getActiveClass('/contact')} onClick={handleTabsVisibility}>
+              <Link href="/contact"  className={getActiveClass('/contact')} onClick={() => handleTabsVisibility('Contact')}>
                 Contact
               </Link>
             </div>
