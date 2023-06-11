@@ -9,6 +9,7 @@ export const PersonalProjects: Project[] = [
     technologies: ['Angular', 'JavaScript', 'SCSS & CSS', 'Git'],
     gitHub: 'https://github.com/NellyHayrapetyan/photo-library',
     material: '/photo-library/photo-library.gif',
+    placeholder: '/photo-library/favorites.jpg',
     descriptions: [
       {
         text: 'This project serves as a concise demonstration of implementing infinite scroll functionality without relying on specialized libraries. It retrieves random photos upon initial loading and dynamically loads additional photos as the user scrolls.',
@@ -37,6 +38,7 @@ export const PersonalProjects: Project[] = [
     technologies: ['Angular', 'NextJS', 'JavaScript', 'SCSS & CSS', 'Git'],
     gitHub: 'https://github.com/NellyHayrapetyan/self-edu-web',
     material: '/self-education/self-edu.gif',
+    placeholder: '/self-education/registration.jpg',
     descriptions: [
       {
         text: 'The platform offers registration options for two distinct roles: "Teacher" and "Student." Upon registration, teachers gain the ability to create tests and upload resources to the platform.',
@@ -62,6 +64,7 @@ export const PersonalProjects: Project[] = [
     technologies: ['React', 'Redux', 'NextJS', 'JavaScript', 'SCSS & CSS'],
     gitHub: 'https://github.com/NellyHayrapetyan/animeworld-front',
     material: '/anime-world/anime-world.gif',
+    placeholder: '/anime-world/anime-list.jpg',
     descriptions: [
       {
         text: 'The platform offers a comprehensive catalog of anime titles, encompassing detailed information such as release dates, ratings, and related content. Users can access trailers for each anime and stay updated with the latest news and updates within the anime community.',
@@ -123,6 +126,7 @@ export const ProfessionalProjects: Project[] = [
     technologies: ['TypeScript', 'Angular', 'Ant Design', 'RxJs', 'micro-services', 'LESS & CSS', 'Jest', 'Golang'],
     webPage: 'https://www.slb.com/products-and-services/decarbonizing-industry/methane-emissions-management',
     material: '/slb/slb-emission.gif',
+    placeholder: '/slb/slb.jpg',
   },
   {
     id: 6,
@@ -132,6 +136,7 @@ export const ProfessionalProjects: Project[] = [
     technologies: ['Angular', 'RxJs' ,'SCSS', 'PrimeNG', '.NetCore'],
     webPage: 'https://www.dedalus.com/global/en/',
     material: '/dedalus/dedalus.gif',
+    placeholder: '/dedalus/search.jpg',
     descriptions: [
       {
         text: 'The platform offers a customizable search feature for patients, allowing users to select and define the search fields and criteria according to their preferences. This provides users with the flexibility to tailor the search functionality to their specific needs based on region of patient.',
@@ -164,6 +169,7 @@ export const ProfessionalProjects: Project[] = [
     technologies: ['Angular', 'RxJs', 'Spectator', 'Jest', 'GIT', 'Crowdin CLI', 'HTML', 'CSS & SCSS'],
     webPage: 'https://eftpos.co.nz/verifone-merchant-portal',
     material: '/verifone/portal.gif',
+    placeholder: '/verifone/verifone.jpg',
   },
 ];
 

@@ -14,10 +14,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   return (
     <Link className={classes.ProjectIntro} href={`portfolio/${data.id}`}>
       {!isImageLoaded && (
-        <img
+        <div
           className={classes.Placeholder}
-          src="/mobiclocks/tracking-placeholder.jpg"
-          alt="placeholder"
+          style={{backgroundImage: `url(${data.placeholder})`}}
         />
       )}
       <Image
