@@ -18,16 +18,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           className={classes.ProjectImage}
           src="/mobiclocks/tracking-placeholder.jpg"
           alt="placeholder"
-          style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
       )}
-      <Image
+      {isImageLoaded && <Image
         className={classes.ProjectImage}
         src={data.material}
         alt="project"
         onLoad={() => setIsImageLoaded(true)}
-      />
-      {!isImageLoaded && <div className={classes.ImagePlaceholder} />}
+      />}
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
         <p>{data.shortInfo}</p>
