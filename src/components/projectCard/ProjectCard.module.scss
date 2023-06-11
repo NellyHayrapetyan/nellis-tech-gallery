@@ -12,15 +12,14 @@
 
   .ProjectImage {
     border-radius: inherit;
-    position: static !important;
     object-fit: fill;
-    box-shadow: 0 0 6px 2px grey;
     vertical-align: top;
     width: 100%;
     z-index: -1;
+    position: absolute !important;
 
     &.unHide {
-      position: absolute !important;
+      position: static !important;
       z-index: 1;
     }
   }
