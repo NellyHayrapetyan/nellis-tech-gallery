@@ -32,6 +32,7 @@
     gap: 2rem;
 
     .ProjectTabs {
+
       .Active {
         background: $dark-grey;
         color: $cream-color;
@@ -62,7 +63,20 @@
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
-      padding: 0 10rem;
+      flex: 0 0 83%;
+      max-width: 83%;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .ProjectWrapper {
+    .AllProjects {
+      .Projects {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
     }
   }
 }

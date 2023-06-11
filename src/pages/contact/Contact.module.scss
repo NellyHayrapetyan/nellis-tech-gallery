@@ -17,9 +17,9 @@
   }
 
   .Intro {
-    opacity: 0;
     color: $grey;
     font-size: 1.2rem;
+    animation: 1.5s $stretch ease-out;
   }
 
   form {
@@ -27,10 +27,7 @@
     gap: 1rem;
     display: flex;
     flex-direction: column;
-
-    & * {
-      opacity: 0;
-    }
+    animation: 1.5s $stretch ease-out;
 
     .Field {
       background: white;
@@ -71,7 +68,7 @@
         opacity: 1;
       }
 
-      &.disabled {
+      &:disabled {
         opacity: 0.5;
         cursor: none;
       }

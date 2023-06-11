@@ -4,16 +4,18 @@
 .ProjectIntro {
   position: relative;
   flex: 1 1;
-  flex-basis: 40%;
+  min-width: 40%;
   border-radius: 1rem;
   box-shadow: 0 0 6px 2px grey;
   cursor: pointer;
   animation: 3s $stretch ease-out;
+  vertical-align: top;
 
   .ProjectImage {
     border-radius: inherit;
     position: static !important;
     object-fit: fill;
+    vertical-align: top;
   }
 
 
@@ -67,5 +69,12 @@
         color: $cream-color;
       }
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .ProjectIntro {
+    width: 100%;
+    min-width: 100%;
   }
 }

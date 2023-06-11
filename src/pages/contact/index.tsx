@@ -1,7 +1,6 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react'
 import classes from './Contact.module.scss';
 import Toaster from "@/components/toaster/Toaster";
-import ScrollLineUp from "@/components/scrollLineUp/ScrollLineUp";
 
 const emailValidity = (value: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -9,12 +8,13 @@ const emailValidity = (value: string) => {
 }
 
 const Contact = () => {
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [toasterData, setToasterData] = useState<{message: string, type: string} | null>(null);
 
   const handleFieldChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setIsValid(!!e.target.value.length)
+    console.log(isValid);
+    setIsValid(!!e.target.value.length)
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -68,55 +68,45 @@ const Contact = () => {
     return (
       <div className={classes.ContactWrapper}>
         <h1 className={classes.Title}>Contact.</h1>
-        <ScrollLineUp>
           <p className={classes.Intro}>Get in touch or send me an email directly
             on <b>hayrapetyannelly1@gmail.com</b></p>
-        </ScrollLineUp>
         <form onSubmit={handleSubmit}>
-          <ScrollLineUp>
-            <input
-              className={classes.Field}
-              onChange={handleFieldChange}
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              aria-required="true"
-              required={true}/>
-          </ScrollLineUp>
-          <ScrollLineUp>
-            <input
-              onChange={handleEmailChange}
-              className={classes.Field}
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              aria-required="true"
-              required={true}/>
-          </ScrollLineUp>
-          <ScrollLineUp>
-            <textarea
-              onChange={handleFieldChange}
-              className={`${classes.Field} ${classes.TextField}`}
-              name="message"
-              id="message"
-              placeholder="Message"
-              aria-required="true"
-              required={true}
-            ></textarea>
-          </ScrollLineUp>
-          <ScrollLineUp>
-            <button
-              disabled={!isValid}
-              className="btn btn-default"
-              type="submit"
-              aria-label="Send Message"
-            >
-              {isLoading && <span>Loading...</span>}
-              {!isLoading && <span>Send Message</span>}
-            </button>
-          </ScrollLineUp>
+          <input
+            className={classes.Field}
+            onChange={handleFieldChange}
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            aria-required="true"
+            required={true}/>
+          <input
+            onChange={handleEmailChange}
+            className={classes.Field}
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            aria-required="true"
+            required={true}/>
+          <textarea
+            onChange={handleFieldChange}
+            className={`${classes.Field} ${classes.TextField}`}
+            name="message"
+            id="message"
+            placeholder="Message"
+            aria-required="true"
+            required={true}
+          ></textarea>
+          <button
+            disabled={!isValid}
+            className="btn btn-default"
+            type="submit"
+            aria-label="Send Message"
+          >
+            {isLoading && <span>Loading...</span>}
+            {!isLoading && <span>Send Message</span>}
+          </button>
         </form>
         {toasterData && (
           <Toaster type={toasterData.type} message={toasterData.message} />
