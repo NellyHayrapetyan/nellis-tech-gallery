@@ -15,16 +15,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
     <Link className={classes.ProjectIntro} href={`portfolio/${data.id}`}>
       {!isImageLoaded && (
         <img
-          className={classes.ProjectImage}
+          className={classes.Placeholder}
           src="/mobiclocks/tracking-placeholder.jpg"
           alt="placeholder"
         />
       )}
       <Image
-        className={classes.ProjectImage}
+        className={`${!isImageLoaded ? classes.Hide : ''}  ${classes.ProjectImage}`}
         src={data.material}
         alt="project"
-        onLoadingComplete={() => setIsImageLoaded(true)}
+        priority
+        fill
+        onLoad={() => setIsImageLoaded(true)}
       />
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
