@@ -20,12 +20,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           alt="placeholder"
         />
       )}
-      {isImageLoaded && <Image
-        className={classes.ProjectImage}
-        src={data.material}
-        alt="project"
-        onLoad={() => setIsImageLoaded(true)}
-      />}
+      <div style={{ display: isImageLoaded ? 'static': 'none'}}>
+        <Image
+          className={classes.ProjectImage}
+          src={data.material}
+          alt="project"
+          onLoad={() => setIsImageLoaded(true)}
+        />
+      </div>
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
         <p>{data.shortInfo}</p>
