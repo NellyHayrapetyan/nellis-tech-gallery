@@ -22,10 +22,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const mailOptions = {
         from: email,
         to: 'hayrapetyannelly1@gmail.com',
-        subject: name,
+        subject: `Portfolio email from ${name} - ${email})`,
         text: message,
       };
-
 
       await transporter.sendMail(mailOptions);
 
