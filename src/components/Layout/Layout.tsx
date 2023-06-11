@@ -29,14 +29,12 @@ export default function Layout({ children }: LayoutProps) {
     return router.pathname === path ? classes.Active : '';
   };
 
-  const handleTabChange = (currentPage) => {
-    console.log(currentPage)
+  const handleTabChange = (currentPage: string) => {
     setPageTitle(`${currentPage} ${title}`)
   }
 
-  const handleTabsVisibility = (page = null) => {
+  const handleTabsVisibility = (page: string | null = null) => {
     if (page) {
-      console.log(page)
       handleTabChange(page);
     }
     setShowTabs((prevState) => !prevState);
