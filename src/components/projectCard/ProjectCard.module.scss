@@ -17,10 +17,11 @@
     box-shadow: 0 0 6px 2px grey;
     vertical-align: top;
     width: 100%;
+    z-index: -1;
 
-    &.Hide {
+    &.unHide {
       position: absolute !important;
-      z-index: -1;
+      z-index: 1;
     }
   }
 

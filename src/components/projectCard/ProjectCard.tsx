@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
         />
       )}
       <Image
-        className={`${!isImageLoaded ? classes.Hide : ''}  ${classes.ProjectImage}`}
+        className={`${isImageLoaded ? classes.unHide : ''}  ${classes.ProjectImage}`}
         src={data.material}
         alt="project"
         priority
