@@ -71,6 +71,7 @@
         }
 
         .Material {
+          position: static !important;
           object-fit: contain;
           margin-bottom: 3rem;
           animation: 2s $stretch ease-out;

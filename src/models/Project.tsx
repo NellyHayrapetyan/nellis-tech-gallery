@@ -7,6 +7,7 @@ export interface Project {
   webPage?: string;
   gitHub?: string;
   material: string;
+  placeholder?: string;
   descriptions?: Description[]
 }
 

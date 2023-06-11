@@ -11,7 +11,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   return (
     <Link className={classes.ProjectIntro} href={`portfolio/${data.id}`}>
-      <Image className={classes.ProjectImage} src={data.material} alt="project" fill={true} priority/>
+      <Image className={classes.ProjectImage} src={data.material} alt="project" fill priority placeholder="/mobiclocks/tracking-placeholder.jpg"/>
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
         <p>{data.shortInfo}</p>

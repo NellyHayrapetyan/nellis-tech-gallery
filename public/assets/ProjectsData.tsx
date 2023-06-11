@@ -89,6 +89,7 @@ export const ProfessionalProjects: Project[] = [
     about: 'MobiClocks time and attendance tracking software powered by the most advanced face recognition technology, and an easy to use dashboard with a flag alert system make it easy to keep up with day-to-day attendance tasks. No more timesheets or spreadsheets which makes cheating so easy and payroll a headache. Just grab a tablet or smartphone and have your employees punch with confidence.',
     technologies: [ 'Angular', 'Angular Material', 'Google Maps', 'ngx-admin', 'date-fns', 'GIT'],
     webPage: 'https://mobiclocks.com/',
+    placeholder: '/mobiclocks/tracking-placeholder.jpg',
     material: '/mobiclocks/tracking.gif',
     descriptions: [
       {
