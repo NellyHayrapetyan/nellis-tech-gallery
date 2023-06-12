@@ -8,17 +8,19 @@ import React from "react";
 function Welcome() {
   return (
     <div className={classes.Wrapper}>
-      <div className={classes.ImageWrapper}>
-        <Image className={classes.ProfilePicture} src="/portrait-photo.jpg" alt="my portrait" fill={true} priority/>
-      </div>
-      <article className={classes.Description}>{WelcomeMessage}</article>
-      <div  className={classes.Navigation}>
-        <Link href="about" className={classes.Link}>
-          <div className={classes.NavText}>
-            <span>See More About Me</span>
-            <ArrowIcon />
-          </div>
-        </Link>
+      <div className={classes.Content}>
+        <div className={classes.IntroWrapper}>
+          <Image className={classes.ProfilePicture} src="/portrait.jpg" alt="my portrait" fill={true} priority/>
+          <article className={classes.Description}>{WelcomeMessage}</article>
+        </div>
+        <div  className={classes.Navigation}>
+          <Link href="about" className={classes.Link}>
+            <div className={classes.NavText}>
+              <span>See More About Me</span>
+              <ArrowIcon />
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

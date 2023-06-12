@@ -6,104 +6,91 @@
   position: relative;
   font-size: 1.7rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 6.25rem 4rem 1rem;
   gap: 1.5rem;
+  overflow: auto;
+  height: calc(100vh - 11rem);
 
-  .Navigation {
+  .Content {
+    max-width: 70%;
     width: 100%;
-    text-align: start;
+    height: 100%;
+    justify-content: space-around;
     display: flex;
     align-items: center;
+    flex-direction: column;
 
-    .Link {
-      text-decoration: none !important;
-      color: $grey;
-    }
-
-    .NavText {
-      position: relative;
+    .Navigation {
+      text-align: start;
       display: flex;
       align-items: center;
-      gap: 1rem;
 
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -0.08rem;
-        width: 0;
-        height: 0.08rem;
-        background-color: $green;
-        transition: width 0.5s;
+      .Link {
+        text-decoration: none !important;
+        color: $grey;
       }
 
-      &:hover {
+      .NavText {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
         &::after {
-          width: 100%;
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -0.08rem;
+          width: 0;
+          height: 0.08rem;
+          background-color: $green;
+          transition: width 0.5s;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
         }
       }
     }
-  }
 
-  .ImageWrapper {
-    height: 11.9rem;
-    width: 11.9rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    .IntroWrapper {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
 
-    .ProfilePicture {
-      position: static !important;
-      border-radius: 0.5rem;
-      height: 9rem !important;
-      width: 9rem !important;
-      object-fit: contain;
+      .ProfilePicture {
+        flex: 1 1;
+        max-height: 40vmin !important;
+        position: static !important;
+        border-radius: 0.5rem;
+        object-fit: contain;
+        animation: $stretch 2s ease-out;
+      }
+
+      .Description {
+        font-size: 3vmin;
+        animation: 2s $stretch ease-out, 2s shimmer infinite;
+        flex: 2 1;
+        text-align: justify;
+        color: rgba(15, 122, 60, 0.3);
+        $gradientOptions: linear, left top, right top, from(rgba(0, 255, 114, 0.54)), to(rgba(21, 199, 100, 0.3)), color-stop(0.5, #fff);
+
+        @mixin bg-vendor($args...) {
+          background: -webkit-gradient($args);
+          background: gradient($args);
+        }
+
+        @include bg-vendor($gradientOptions);
+        background-repeat: no-repeat;
+        background-size: 125px 100%;
+        background-clip: text;
+        background-position: 0 0;
+        background-color: rgba(16, 65, 36, 0.6)
+      }
     }
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -0.6rem;
-      width: 30%;
-      height: 0.1rem;
-      border-radius: 1rem;
-      background-color: $light-green;
-      box-shadow: 0 0 0.2rem 0.17rem $light-green;
-    }
-  }
-
-  .Description {
-    margin: 1.5rem 0;
-    text-align: justify;
-    color: rgba(15, 122, 60, 0.3);
-    $gradientOptions: linear, left top, right top, from(rgba(0, 255, 114, 0.54)), to(rgba(21, 199, 100, 0.3)), color-stop(0.5, #fff);
-
-    @mixin vendor($prop, $args...) {
-      -webkit-#{$prop}: $args;
-      -moz-#{$prop}: $args;
-      #{$prop}: $args;
-    }
-
-    @mixin bg-vendor($args...) {
-      background: -webkit-gradient($args);
-      background: gradient($args);
-    }
-
-    @include bg-vendor($gradientOptions);
-    @include vendor(background-size, 125px 100%);
-    @include vendor(background-clip, text);
-    @include vendor(animation-name, shimmer);
-    @include vendor(animation-duration, 2s);
-    @include vendor(animation-iteration-count, infinite);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-color: rgba(16, 65, 36, 0.6)
   }
 }
 
@@ -125,34 +112,15 @@
 
 @media (max-width: 700px) {
   .Wrapper {
-    margin: 2rem 2rem 1rem;
-
-    .ImageWrapper {
-      height: 8.9rem !important;
-      width: 8.9rem !important;
+    .IntroWrapper {
+      flex-direction: column;
 
       .ProfilePicture {
-        height: 6rem !important;
-        width: 6rem !important;
+        margin: 0 !important;
+        height: 35vmin !important;
       }
 
       .Description {
-        font-size: 1.2rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .Wrapper {
-    margin: 0 1rem;
-
-    .Description {
-      font-size: 1rem;
-    }
-
-    .Navigation {
-      .NavText {
         font-size: 1.2rem;
       }
     }
