@@ -24,7 +24,7 @@ export const PersonalProjects: Project[] = [
       {
         text: 'Users have the option to view individual pictures from the Favorites section as well.',
         picture: {
-          link: '/photo-library/single-photo.jpg',
+          link: '/photo-library/single.jpg',
           alt: 'Single selected'
         },
       }
