@@ -50,6 +50,10 @@
       z-index: 2;
       transform: none;
       opacity: 1;
+
+      .ShortInfo  {
+        margin: 0.2rem 0;
+      }
     }
 
     &::after {

@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
       />
       <div className={classes.InfoOverlay}>
         <h1>{data.title}</h1>
-        <p>{data.shortInfo}</p>
+        <p className={classes.ShortInfo}>{data.shortInfo}</p>
         <p className={classes.Tech}>{data.technologies.map((tech) => <span key={tech}>{tech}</span>)}</p>
       </div>
     </Link>

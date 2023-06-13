@@ -4,7 +4,7 @@ export const PersonalProjects: Project[] = [
   {
     id: 1,
     title: 'Photo Library',
-    shortInfo: 'Discover a dynamic photo library with infinite scroll and endless inspiration.',
+    shortInfo: 'Dynamic photo library with infinite scroll.',
     about: 'Photo library webpage with an infinite scroll feature, offering a never-ending stream of captivating images. Discover a vast collection of photos and curate your own personal favorites as you browse. With a constant influx of randomly selected photos, there\'s always something new to inspire and delight you',
     technologies: ['Angular', 'JavaScript', 'SCSS & CSS', 'Git'],
     gitHub: 'https://github.com/NellyHayrapetyan/photo-library',
@@ -25,7 +25,7 @@ export const PersonalProjects: Project[] = [
         text: 'Users have the option to view individual pictures from the Favorites section as well.',
         picture: {
           link: '/photo-library/single-photo.jpg',
-          alt: 'Single selected maximized'
+          alt: 'Single selected'
         },
       }
     ]
@@ -33,8 +33,8 @@ export const PersonalProjects: Project[] = [
   {
     id: 2,
     title: 'Self Education',
-    shortInfo: 'Access learning materials and take tests to assess and enhance your skills.',
-    about: 'As you progress, our unique testing system adapts to your performance, intelligently identifying areas of improvement based on mistakes made during previous tests. This personalized approach ensures that you receive targeted recommendations for related topics, allowing you to strengthen your understanding and expertise.',
+    shortInfo: 'Learning materials and quizzes.',
+    about: 'The platform provides learning materials. As you progress, the unique testing system adapts to your performance, intelligently identifying areas of improvement based on mistakes made during previous tests. This personalized approach ensures that you receive targeted recommendations for related topics, allowing you to strengthen your understanding and expertise.',
     technologies: ['Angular', 'NextJS', 'JavaScript', 'SCSS & CSS', 'Git'],
     gitHub: 'https://github.com/NellyHayrapetyan/self-edu-web',
     material: '/self-education/self-edu.gif',
@@ -165,7 +165,7 @@ export const ProfessionalProjects: Project[] = [
     id: 7,
     title: 'Merchant Portal',
     shortInfo: `Supplement Verifone's eCommerce delivery`,
-    about: 'Build detailed transaction lists for reporting and reconciliation. Drill down to a particular day, store, EFTPOS terminal or transaction to get exactly the detail you need. make this a bit longer',
+    about: 'Build detailed transaction lists for comprehensive reporting and reconciliation purposes. With this robust solution, you have the ability to drill down into specific parameters such as a particular day, store location, EFTPOS terminal, or individual transaction, enabling you to access the precise level of detail you require. By utilizing this feature-rich platform, you can effortlessly generate transaction lists that provide valuable insights into your business operations. Experience a seamless and efficient process as you navigate through your transaction records, empowering you to make informed decisions and optimize your strategies.',
     technologies: ['Angular', 'RxJs', 'Spectator', 'Jest', 'GIT', 'Crowdin CLI', 'HTML', 'CSS & SCSS'],
     webPage: 'https://eftpos.co.nz/verifone-merchant-portal',
     material: '/verifone/portal.gif',
@@ -176,4 +176,4 @@ export const ProfessionalProjects: Project[] = [
 
 
 
-export const ProjectIntro = `I have included short introductions for my work experience projects, although most of them are private and cannot be fully disclosed or demonstrated. Additionally, some of the projects showcased here are personal endeavours that I work on during my free time, even though they may not be complete they demonstrate my passion and dedication.`;
+export const ProjectIntro = `I have included short introductions for my work experience projects, although some of them are private and cannot be fully disclosed or demonstrated. Additionally, some of the projects showcased here are personal endeavours that I work on during my free time, even though they may not be complete they demonstrate my passion and dedication.`;
